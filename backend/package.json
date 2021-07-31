@@ -1,12 +1,14 @@
 {
-  "name": "spamreport",
+  "name": "spam-report",
   "version": "1.0.0",
-  "description": "Spam Report",
-  "main": "index.js",
+  "description": "Spam Report Management System",
+  "main": "server.js",
   "scripts": {
+	"start": "node server.js",
+	"server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Todd Nash",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
