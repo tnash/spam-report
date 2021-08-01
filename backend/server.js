@@ -9,6 +9,7 @@ connectDB();
 
 // Define routes
 app.use('/api/spam', require('./routes/reports'));
+app.use('/api/load', require('./routes/loadData'));
 
 const PORT = process.env.PORT || 5000;
 

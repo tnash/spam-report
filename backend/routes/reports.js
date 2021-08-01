@@ -41,9 +41,9 @@ router.get('/:id', async (req, res) => {
 // @access	Public
 router.put('/block/:reportId',
 	async (req, res) => {
-		let id = req.params.reportId;
+		let reportId = req.params.reportId;
 		try {
-			const filter = {id: id};
+			const filter = {id: reportId};
 			const update = {blocked: true};
 			let spamRecord = await Report.findOneAndUpdate(filter, update, {new: true});
 			if (!spamRecord) {
@@ -62,12 +62,11 @@ router.put('/block/:reportId',
 // @access	Public
 router.put('/resolve/:reportId',
 	async (req, res) => {
-		let id = req.params.reportId;
+		let reportId = req.params.reportId;
 		try {
-			const filter = {id: id};
+			const filter = {id: reportId};
 			const update = {resolved: true};
-			// let spamRecord = await Report.findOneAndUpdate(filter, update, {new: true});
-			let spamRecord = findAndUpdateReportRecord(filter, update);
+			let spamRecord = await Report.findOneAndUpdate(filter, update, {new: true});
 			if (!spamRecord) {
 				return res.status(400).json({msg: 'Spam report record not found'});
 			} else {
@@ -77,9 +76,5 @@ router.put('/resolve/:reportId',
 			console.log(err);
 		}
 	});
-
-async function findAndUpdateReportRecord(filter, update) {
-	await Report.findOneAndUpdate(filter, update, {new: true});
-}
 
 module.exports = router;

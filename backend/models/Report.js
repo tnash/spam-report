@@ -55,14 +55,14 @@ const ReportSchema = mongoose.Schema({
 		required: true
 	},
 	reference: {
-		type: [ReportReferenceSchema]
+		type: ReportReferenceSchema
 	},
 	state: {
 		type: String,
 		required: true
 	},
     payload: {
-		type: [ReportPayloadSchema],
+		type: ReportPayloadSchema,
 		required: true
 	},
 	blocked: {
