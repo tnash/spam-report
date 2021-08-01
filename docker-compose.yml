@@ -1,6 +1,6 @@
 version: '3.6'
 networks:
-  order_network:
+  spam_network:
     name: spam_network
 services:
   mongo:
@@ -9,8 +9,10 @@ services:
     container_name: mongodb
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: spam
-      MONGO_INITDB_ROOT_PASSWORD: shoot4themoon
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: spam
+#      MONGO_INITDB_ROOT_PASSWORD: shoot4themoon
     networks:
       - spam_network
+    volumes:
+      - ./mongo-volume:/data/db

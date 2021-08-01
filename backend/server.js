@@ -1,4 +1,5 @@
 const express = require('express');
+
 const connectDB = require('./config/db');
 
 const app = express();
@@ -6,12 +7,8 @@ const app = express();
 // Connect Database
 connectDB();
 
-app.get('/', (req, res) =>
-	res.json({msg: 'Welcome to the Spam Report Manager Application'})
-);
-
 // Define routes
-app.use('/api/spam', require('./routes/spamList'));
+app.use('/api/spam', require('./routes/reports'));
 
 const PORT = process.env.PORT || 5000;
 

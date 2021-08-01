@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
 const config = require('config');
-const db = config.get('mongoURI');
+const db = config.get('dbConfig');
 
 const connectDB = async () => {
 	try {
-		await mongoose.connect(db, {
+		let mongoURI = 'mongodb://' +
+			// db.mongoUser + ':' +
+			// db.mongoPassword + '@' +
+			db.mongoHost + ':' +
+			db.mongoPort + '/' +
+			db.mongoDatabase;
+
+		await mongoose.connect(mongoURI, {
 			useNewUrlParser: true,
 			useCreateIndex: true,
 			useFindAndModify: true
@@ -17,5 +24,5 @@ const connectDB = async () => {
 	}
 };
 
-module.exports = module.connectDB;
+module.exports = connectDB;
 
