@@ -23,9 +23,9 @@ router.get('/', async (req, res) => {
 // @route	GET api/spam/:id
 // @desc	Return the report record with the specified id
 // @access	Public
-router.get('/:id', async (req, res) => {
+router.get('/:reportId', async (req, res) => {
 	try {
-		const reports = await Report.find({id: req.params.id});
+		const reports = await Report.find({id: req.params.reportId});
 		res.send(reports);
 	} catch (err) {
 		console.log(err.message);
@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
 // @route	GET api/spam/block/:id
 // @desc	Block a specific report record
 // @access	Public
-router.put('/block/:reportId',
+router.put('/:reportId/block',
 	async (req, res) => {
 		let reportId = req.params.reportId;
 		try {
@@ -60,7 +60,7 @@ router.put('/block/:reportId',
 // @route	GET api/spam/resolve/:id
 // @desc	Block a specific report record
 // @access	Public
-router.put('/resolve/:reportId',
+router.put('/:reportId/resolve',
 	async (req, res) => {
 		let reportId = req.params.reportId;
 		try {

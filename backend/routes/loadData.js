@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 		let reportData = fs.readFileSync('./data/reports.json');
 		let reports = JSON.parse(reportData);
 		Report.insertMany(reports.elements);
-		// console.log(JSON.stringify(reports.elements));
+		res.send(JSON.stringify(reports.elements));
 	} catch (err) {
 		console.log(err.message);
 		res.status(500).send('Error loading data')

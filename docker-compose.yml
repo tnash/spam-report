@@ -9,7 +9,8 @@ services:
     container_name: mongodb
     ports:
       - 27017:27017
-#    environment:
+    environment:
+      MONGO_INITDB_DATABASE: spam-reports
 #      MONGO_INITDB_ROOT_USERNAME: spam
 #      MONGO_INITDB_ROOT_PASSWORD: shoot4themoon
     networks:
