@@ -15,9 +15,6 @@ const Reports = () => {
 		// eslint-disable-next-line
 	}, []);
 
-	console.log('Reports: ', reports);
-	console.log('loading?: ', loading);
-
 	return (
 		<Fragment>
 			{reports != null ? () => {
