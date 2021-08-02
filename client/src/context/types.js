@@ -1,0 +1,4 @@
+export const GET_REPORTS = 'GET_REPORTS'
+export const BLOCK_REPORT = 'BLOCK_REPORT';
+export const RESOLVE_REPORT = 'RESOLVE_REPORT';
+export const REPORT_ERROR = 'REPORT_ERROR';
