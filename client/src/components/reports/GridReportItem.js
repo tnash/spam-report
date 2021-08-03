@@ -28,7 +28,7 @@ const ReportItem = ({report}) => {
 						Type: {payload.reportType.charAt(0) + payload.reportType.slice(1).toLowerCase()}
 					</MDBCol>
 					<MDBCol size='2' className='col-auto'>
-						<button className="btn btn-danger btn-sm" onClick={onBlock}>Block</button>
+						<button disabled={report.blocked} className="btn btn-danger btn-sm" onClick={onBlock}>Block</button>
 					</MDBCol>
 				</MDBRow>
 				<MDBRow>

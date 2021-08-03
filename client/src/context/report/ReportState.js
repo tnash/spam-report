@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const ReportState = props => {
 	const initialState = {
-		reports: null,
+		reports: [],
 		error: null,
 		loading: true
 	};
@@ -31,7 +31,6 @@ const ReportState = props => {
 				}
 			});
 			if (res.status === 200) {
-				console.log('Success!: ', res.status);
 				console.log('Response from server is ', res);
 				dispatch({
 					type: GET_REPORTS,
@@ -68,7 +67,7 @@ const ReportState = props => {
 			console.log(response);
 			dispatch({
 				type: BLOCK_REPORT,
-				payload: response.data.id
+				payload: response.data
 			});
 		} catch (err) {
 			dispatch({
@@ -92,7 +91,7 @@ const ReportState = props => {
 			console.log('Response from Resolve request: ', response);
 			dispatch({
 				type: RESOLVE_REPORT,
-				payload: response.data.id
+				payload: response.data
 			});
 		} catch (err) {
 			dispatch({
